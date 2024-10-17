@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Our Gallery</title>
+        <link rel="stylesheet" href="Our style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <section class="sub-header">
+            <nav> 
+                <a href="index.html"><img src="img/Tocinfotech Logo.png"</a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="FAQ.html">FAQ</a></li>
+                        <li><a href="OurGallery.html">GALLERY</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+        </section>
+
+        <section class="gallery">
+        <input type="radio" name="photo" id="check1" checked>
+        <input type="radio" name="photo" id="check2" >
+        <input type="radio" name="photo" id="check3" >
+        <input type="radio" name="photo" id="check4" >
+
+        <div class="container">
+            <h1>OUR PHOTO GALLERY</h1>
+            <div class="top-content">
+                <h3>Photo Gallery</h3>
+                <label for="check1">All Photos</label>
+                <label for="check2">Students</label>
+                <label for="check3">Training</label>
+                <label for="check4">Services</label>
+            </div>
+
+            <div class="photo-gallery">
+                <div class="pic place">
+                    <img src="img/12.jpg" alt="">  
+                </div>
+                <div class="pic family">
+                    <img src="img/famly.jpg" alt="">
+                </div>
+                <div class="pic child">
+                    <img src="img/Advert1.jpg" alt="">  
+                </div>
+                <div class="pic place">
+                    <img src="img/12.jpg" alt="">  
+                </div>
+                <div class="pic family">
+                    <img src="img/family 2.jpg" alt="">
+                </div>
+                <div class="pic child">
+                    <img src="img/Advert2.jpg" alt="">  
+                </div>
+                <div class="pic place">
+                    <img src="img/12.jpg" alt="">  
+                </div>
+                <div class="pic family">
+                    <img src="img/family 3.jpg" alt="">
+                </div>
+                <div class="pic child">
+                    <img src="img/Advert3.jpg" alt="">  
+                </div>
+                <div class="pic place">
+                    <img src="img/12.jpg" alt="">  
+                </div>
+                <div class="pic family">
+                    <img src="img/family 4.jpg" alt="">
+                </div>
+                <div class="pic child">
+                    <img src="img/Advert4.jpg" alt="">  
+                </div>
+        </div>
+    </section>
+
+<!-------- Footer------->
+<section class="footer">
+
+    <div class="icons">
+    <i class="fa fa-facebook"></i>
+    <i class="fa fa-twitter"></i>
+    <i class="fa fa-instagram"></i>
+    <i class="fa fa-linkedin"></i>
+</div>
+<p>Made with <i class="fa fa-heart-o"></i> by King OJ Delight</p>
+</section>
+
+
+    <!----Slider Javascript-->
+    <script>
+        let slide = document.querySelectorAll('.slide');
+        var current = 0;
+
+        function cls(){
+            for(let i = 0; i < slide.length; i++){
+                slide[i].style.display = 'none';
+            }
+        }
+
+        function next(){
+            cls();
+            if (current ===slide.length-1) current = -1;
+            current ++;
+
+            slide[current].style.display = 'block';
+            slide[current].style.opacity = 0.4;
+
+            var x = 0.4;
+            var intX = setInterval(function(){
+                x+=0.1;
+                slide[current].style.opacity = x;
+                if(x >= 1){
+                    clearInterval(intX);
+                    x = 0.4;
+                }
+            }, 100);
+        }
+
+
+        function prev(){
+            cls();
+            if (current === 0) current = slide.length;
+            current --;
+
+            slide[current].style.display = 'block';
+            slide[current].style.opacity = 0.4;
+
+            var x = 0.4;
+            var intX = setInterval(function(){
+                x+=0.1;
+                slide[current].style.opacity = x;
+                if(x >= 1){
+                    clearInterval(intX);
+                    x = 0.4;
+                }
+            }, 100);
+        }
+
+
+        function start(){
+            cls();
+            slide[current].style.display = 'block';
+        }
+        start()
+        
+
+var navLinks = document.getElementById("navLinks");
+
+function showMenu(){
+    navLinks.style.right = "0";
+}
+function hideMenu(){
+    navLinks.style.right = "-200px";
+}
+</script>
+
+
+    </body>
+</html>
